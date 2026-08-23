@@ -24,10 +24,10 @@ h1 { font-size:22px; margin:0 0 14px; }
 </style>
 </head><body>
 <h1>Референсы для съёмок</h1>
-<div class="filters"><button data-niche="all" onclick="filterNiche('all')" class="active">Все</button><button data-niche="restaurant" onclick="filterNiche('restaurant')" class="">Ресторан</button><button data-niche="shop" onclick="filterNiche('shop')" class="">Магазин</button><button data-niche="cottage" onclick="filterNiche('cottage')" class="">Коттеджный посёлок</button><button data-niche="uncategorized" onclick="filterNiche('uncategorized')" class="">Без категории</button></div>
+<div class="filters"><button data-rubric="all" onclick="filterRubric('all')" class="active">Все</button><button data-rubric="SQER" onclick="filterRubric('SQER')">SQER</button></div>
 <div class="grid" id="grid">
-<div class="card" data-niche="uncategorized">
-<div class="niche-badge">Без категории</div>
+<div class="card" data-rubric="SQER">
+<div class="niche-badge">SQER</div>
 <video controls preload="metadata" src="media/4.mp4"></video>
 <div class="caption">​​Спасибо, что пользуетесь - @SaveAsBot&#x27;ом</div>
 <div class="date">24.08.2026 00:45</div>
@@ -35,12 +35,12 @@ h1 { font-size:22px; margin:0 0 14px; }
 </div>
 
 <script>
-function filterNiche(key) {
+function filterRubric(key) {
   document.querySelectorAll('.filters button').forEach(function(b) {
-    b.classList.toggle('active', b.dataset.niche === key);
+    b.classList.toggle('active', b.dataset.rubric === key);
   });
   document.querySelectorAll('.grid .card').forEach(function(c) {
-    c.style.display = (key === 'all' || c.dataset.niche === key) ? '' : 'none';
+    c.style.display = (key === 'all' || c.dataset.rubric === key) ? '' : 'none';
   });
 }
 </script>
